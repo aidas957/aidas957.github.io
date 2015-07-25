@@ -24,14 +24,17 @@ define ("STAT_CLASS", "STAT_CLASS.php"); // Statistic class file
 define ("MSG_CLASS", "MSG_CLASS.php"); // Message class file
 define ("LNG_CLASS", "LNG_CLASS.php"); // Language class file
 define ("PAGE_CLASS", "PAGE_CLASS.php"); // PAGE class file
+define ("MENU_CLASS", "MENU_CLASS.php"); // MENU class file
 // Function
 define ("LOADTPL_FUNCTION", "loadtpl.php"); // LOADTPL function
 // API
 define ("API_OTA", "API_OTA.php"); // Ota API
 define ("API_STAT", "API_STAT.php"); // Statistic API
+define ("API_MENU", "API_MENU.php"); // Menu API
 // Template
 define ("OTAINDEX_TPL", "otaindex.tpl"); // Ota index file tpl
 define ("OTANULL_TPL", "otanull.tpl"); // Ota no update file tpl
 define ("OTARELIZE_TPL", "otarelize.tpl"); // Ota update file tpl
 define ("INDEX_TPL", "index.tpl"); // Index file tpl
+define ("MENU_TPL", "menu.tpl"); // Menu file tpl
 ?>

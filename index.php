@@ -21,6 +21,7 @@ $AR['STAT'] = new STATClass($AR); 									// Класс работы с статистикой обновле
 $AR['LNG'] = new LNGClass($CONF ,$AR); 								// Класс работы с языковым пакетом
 $AR['OTA'] = new OTAClass(OTANULL_TPL, OTARELIZE_TPL, $AR); 		// Класс работы с OTA
 $AR['PG']  = new PAGEClass($AR); 									// Класс работы с страницей
+$AR['MENU'] = new MENUClass(MENU_TPL, $AR); 						// Класс работы с меню
 /* Подготовка страници */
 $AR['LOG']->LSET("INDEX: BEGIN");
 $AR['DB']->CONNECT(); // Подключаемся к базе данных для выполнения запросов
@@ -34,7 +35,9 @@ if($PARAM['RAW'] != NULL){ // Обработка ОТА
 }else{ 						// Обработка сайт
 	// Fix it: need cms 
 	$AR['MSG']->SET($AR['LNG']->LP['i_test'], "I"); // Создать сообщение из строки языкового пакета
+	$AR['MENU']->GET(); // Формируем меню с базы
 	$AR['PG']->SETCONTENT("", INDEX_TPL); // Устанавливаем контент, с шаблоном для главной страницы для пользователей
+	$AR['PG']->SETMENU("".$AR['MENU']->Pr().""); // Устанавливаем меню
 	$AR['PG']->Pr(); // Вывод контента
 }
 /* Вывод страницы */
