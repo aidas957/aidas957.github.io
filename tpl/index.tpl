@@ -7,7 +7,7 @@
 	<meta name="description" content="[_description]" />
 	<link rel="stylesheet" href="[_tpl_path]css/style.css" type="text/css" media="screen, projection" />
 	<link rel="stylesheet" href="[_tpl_path]css/nprogress.css" />
-	<script src='[_tpl_path]js/jquery-1.10.js'></script>
+	<script src='[_tpl_path]js/jquery.js'></script>
 	<script src='[_tpl_path]js/nprogress.js'></script> 
 </head>
 <body>
