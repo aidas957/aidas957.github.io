@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Июл 25 2015 г., 17:55
+-- Время создания: Июл 25 2015 г., 19:27
 -- Версия сервера: 5.5.41-log
 -- Версия PHP: 5.3.29
 
@@ -69,6 +69,30 @@ CREATE TABLE IF NOT EXISTS `menu` (
 INSERT INTO `menu` (`id`, `name`, `types`, `vars`) VALUES
 (1, 'Главная', 'lnk', '/index.php'),
 (2, 'Статистика', 'cat', '1');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `news`
+--
+
+CREATE TABLE IF NOT EXISTS `news` (
+  `news_id` int(10) NOT NULL AUTO_INCREMENT,
+  `news_fav` int(11) NOT NULL,
+  `news_cat` int(11) NOT NULL,
+  `news_title` varchar(255) NOT NULL,
+  `news_text` text NOT NULL,
+  `news_author` varchar(255) NOT NULL,
+  `news_date_a` int(11) NOT NULL,
+  PRIMARY KEY (`news_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=cp1251 AUTO_INCREMENT=2 ;
+
+--
+-- Дамп данных таблицы `news`
+--
+
+INSERT INTO `news` (`news_id`, `news_fav`, `news_cat`, `news_title`, `news_text`, `news_author`, `news_date_a`) VALUES
+(1, 1, 0, 'News 1', 'Идет разработка портала\r\n[end]\r\nПродолжение', '1', 11444444);
 
 -- --------------------------------------------------------
 

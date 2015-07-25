@@ -14,7 +14,9 @@ include("".CLASS_PATH."".MSG_CLASS."");	    // Подключаем файл обработки сообщен
 include("".CLASS_PATH."".LNG_CLASS."");	    // Подключаем файл обработки языка
 include("".CLASS_PATH."".PAGE_CLASS."");	// Подключаем файл обработки страницы
 include("".CLASS_PATH."".MENU_CLASS."");	// Подключаем файл обработки меню
+include("".CLASS_PATH."".NEWS_CLASS."");	// Подключаем файл обработки новостей
 include("".API_PATH."".API_OTA."");			// Подключаем файл API OTA
 include("".API_PATH."".API_STAT."");		// Подключаем файл API статистики
 include("".API_PATH."".API_MENU."");		// Подключаем файл API работы с меню
+include("".API_PATH."".API_NEWS."");		// Подключаем файл API работы с новостями
 ?>
