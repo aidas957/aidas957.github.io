@@ -4,8 +4,7 @@ CyOTA - PHP OTA server for Cyanogenmod 11-12
 ace3.tk
 
 Need:
-PHP 5.3
-MySQL 5.1 
+PHP 5.3 and MySQL 5.1 
 
 Import ota.sql to db
 
