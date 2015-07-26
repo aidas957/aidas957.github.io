@@ -6,6 +6,7 @@
 defined('_ACE3OTA') or die('ERROR'); // Если константы не существует, значит файл попытались открыть напрямую
 include("".CORE_FOLDER."".CONFIG_FILE.""); 			// Подключаем файл настроек
 include("".FUNCTION_PATH."".LOADTPL_FUNCTION."");	// Подключаем файл функции LOADTPL
+include("".FUNCTION_PATH."".CLEAN_FUNCTION."");	// Подключаем файл функции CLEAN
 include("".CLASS_PATH."".LOG_CLASS."");		// Подключаем файл обработки логов
 include("".CLASS_PATH."".DB_CLASS."");		// Подключаем файл обработки запросов к БД
 include("".CLASS_PATH."".OTA_CLASS."");		// Подключаем файл обработки OTA

@@ -9,6 +9,7 @@ define('_ACE3OTA', 1);  // Установка константы для предотвращения прямого доступ
 /* Обработка входящих параметров */
 $RAWPOST = file_get_contents("php://input"); // RAW POST
 if($RAWPOST != ""){$PARAM['RAW'] = $RAWPOST;}else{$PARAM['RAW'] = NULL;} 	// Проверяем есть ли RAW POST
+if(isset($_GET['full'])){$PARAM['FULL'] = $_GET['full'];}else{$PARAM['FULL'] = NULL;} 	// Полная новость
 /* Сесии */
 /* Подключение файлов */
 include("core/def.php"); 	// Подключаем файл констант
@@ -36,7 +37,7 @@ if($PARAM['RAW'] != NULL){ // Обработка ОТА
 }else{ 						// Обработка сайт
 	// Fix it: need cms 
 	$AR['MENU']->GET(); // Формируем меню с базы
-	$AR['NEWS']->CREATE(); // Формируем новости с базы
+	$AR['NEWS']->CREATE($PARAM['FULL']); // Формируем новости с базы
 	$AR['PG']->SETCONTENT($AR['NEWS']->Pr(), INDEX_TPL); // Устанавливаем контент, с шаблоном для главной страницы для пользователей
 	$AR['PG']->SETMENU("".$AR['MENU']->Pr().""); // Устанавливаем меню
 	$AR['PG']->Pr(); // Вывод контента

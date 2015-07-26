@@ -28,6 +28,7 @@ define ("MENU_CLASS", "MENU_CLASS.php"); // MENU class file
 define ("NEWS_CLASS", "NEWS_CLASS.php"); // NEWS class file
 // Function
 define ("LOADTPL_FUNCTION", "loadtpl.php"); // LOADTPL function
+define ("CLEAN_FUNCTION", "clean.php"); // CLEAN function
 // API
 define ("API_OTA", "API_OTA.php"); // Ota API
 define ("API_STAT", "API_STAT.php"); // Statistic API
