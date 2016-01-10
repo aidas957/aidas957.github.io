@@ -9,4 +9,7 @@ include(CONFIG_FILE); // Add config
 // Class
 include("".CLASS_FOLDER."".LOG_CLASS.""); // Add log class
 // API
+
+// Initialization
+$SYS['LOG'] = new LOGClass($CONF); // Log  
 ?>

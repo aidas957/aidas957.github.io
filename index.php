@@ -8,4 +8,6 @@ $RAWPOST = file_get_contents("php://input"); // Get RAW POST for OTA parsing
 /* Input parameter */
 include("core/init.php"); // Init core
 //phpinfo();
+$SYS['LOG']->WR("INDEX: BEGIN");
+$SYS['LOG']->WR("INDEX: END");
 ?>
