@@ -12,4 +12,5 @@ define ("CLASS_FOLDER", "".CORE_FOLDER."class/");  // Class folder
 define ("CONFIG_FILE", ROOT_FOLDER."/config.php"); // Configuration file
 // Class
 define ("LOG_CLASS", "LOG_CLASS.php"); // Log algoritm class
+define ("DB_CLASS", "DB_CLASS.php"); // SQL db class
 ?>
