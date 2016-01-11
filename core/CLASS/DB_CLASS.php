@@ -11,7 +11,7 @@ class DBClass{
 	public $PASS; 			// Password
 	public $CONNECTTYPE; 	// Type of connection
 	private $MYSQLCONN;		// Connection ID
-	public $SYS; 			// SYS
+	public $AR; 			// SYS
 	// Constructor
 	function DBClass($CONFn, $SYSn){
 		$this->SERVER 	    = $CONFn['DB_SERVER']; 	      
@@ -19,7 +19,7 @@ class DBClass{
 		$this->USER 	    = $CONFn['DB_USER']; 		  
 		$this->PASS 	    = $CONFn['DB_PASS']; 		  
 		$this->CONNECTTYPE	= $CONFn['DB_CONNTYPE'];     
-		$this->SYS		    = $SYSn; 					  
+		$this->AR		    = $ARn; 					  
 	}
 	// Connect to DBClass
 	public function CONNECT(){
@@ -27,12 +27,12 @@ class DBClass{
 			case "mysql":
 				$this->MYSQLCONN = mysql_connect($this->SERVER, $this->USER, $this->PASS); // Connect
 				if(!$this->MYSQLCONN){ // No connection
-					$this->SYS['LOG']->WR("DBClass: CONNECT(mysql):NULL");
+					$this->AR['LOG']->WR("DBClass: CONNECT(mysql):NULL");
 					return NULL;
 				}
 				$this->SELDB = mysql_select_db($this->DBS, $this->MYSQLCONN); // Select DB
 				if(!$this->SELDB){ 	// If no DB
-					$this->SYS['LOG']->WR("DBClass: CONNECT(mysql):NO DB");
+					$this->AR['LOG']->WR("DBClass: CONNECT(mysql):NO DB");
 					$this->CLOSE();	// Close connection
 					return NULL;
 				}
@@ -43,7 +43,7 @@ class DBClass{
 			case "mysqli":
 				$this->MYSQLCONN = mysqli_connect($this->SERVER, $this->USER, $this->PASS, $this->DBS); // Connect
 				if(!$this->MYSQLCONN){ // No connection
-					$this->SYS['LOG']->WR("DBClass: CONNECT(mysqli):NULL");
+					$this->AR['LOG']->WR("DBClass: CONNECT(mysqli):NULL");
 					return NULL;
 				}
 				$this->QUERY("set character_set_client	= 'utf8'"); 			 
