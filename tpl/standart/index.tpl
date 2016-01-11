@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<title>[_title]</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf8" />
 	<meta name="keywords" content="[_keywords]" />
 	<meta name="description" content="[_description]" />
 	<link rel="stylesheet" href="[_tpl_path]css/style.css" type="text/css" media="screen, projection" />
@@ -24,25 +24,25 @@
 		<div class="clr"></div>
 	</header>
 	<section id="middle_top">
-	<!--МЕНЮ-->
+	<!--РњР•РќР®-->
 		[_menu]
-	<!--МЕНЮ-->	
+	<!--РњР•РќР®-->	
 	</section>
 	<section id="middle">
 		<div class="mainside">
 			<div class="content">
-				<!--ПОКАЗ СООБЩЕНИЙ-->
+				<!--РџРћРљРђР— РЎРћРћР‘Р©Р•РќРР™-->
 				[_msg]
-				<!--ПОКАЗ СООБЩЕНИЙ-->
-				<!--ТЕКСТ-->
+				<!--РџРћРљРђР— РЎРћРћР‘Р©Р•РќРР™-->
+				<!--РўР•РљРЎРў-->
 				[_content]
-				<!--ТЕКСТ-->
+				<!--РўР•РљРЎРў-->
 			</div>
 			<div style="text-align:center; clear: both;">
 				<div class="navi">
-					<!--ПОСТРАНИЧНЫЙ ВЫВОД-->
+					<!--РџРћРЎРўР РђРќРР§РќР«Р™ Р’Р«Р’РћР”-->
 					[_paginat]
-					<!--ПОСТРАНИЧНЫЙ ВЫВОД-->
+					<!--РџРћРЎРўР РђРќРР§РќР«Р™ Р’Р«Р’РћР”-->
 				</div>
 			</div>
 			<div class="clr"></div>
