@@ -1,0 +1,1 @@
+<a href="[_lnk]">[_ident]</a>

@@ -22,7 +22,7 @@ class TPLClass{
 	public function TLOAD($TPL){ // Name of template load
 		$TPLPATHfile = $this->TPLPTH.$this->TPLFNAME[$TPL]; // Path + name of tplfile from config
 		$RES = LoadTpl($TPLPATHfile);
-		if(!RES){
+		if(!$RES){
 			// Error no tpl file
 			$this->AR['LOG']->WR("TPLClass: TLOAD: ERROR (No file: ".$this->TPLFNAME[$TPL].")");
 			return false;

@@ -52,7 +52,8 @@ table {border-collapse: collapse;border-spacing: 0;}
 .navi span{color:#96b541;text-decoration:underline;}
 .navi a, .navi span.nav_ext{color:#d5d5cd;}
 .navi span.nav_ext{text-decoration:none;}
-.navi a:active {color:red;}
+/*.navi a:active {color:red;}*/
+/*.navi a:visited {color:red;}*/
 .navi a:hover {color:#97b642;}
 
 #footer{color:#acaa9e;padding:5px 10px 30px 10px;}
@@ -88,3 +89,32 @@ div.error {
 	border-color: #a2d246;
 	background-color: #ebf8a4;
 	}	
+	
+.table-latest-firmware {
+border-collapse: collapse;
+width: 100%;
+table-layout: fixed;
+display: table;
+text-align: left;
+padding: 0;
+}
+.post_ota{margin-bottom:20px;padding-bottom:10px;}
+.firmware-table-row {
+color: #1e1e1e;
+text-decoration: none;
+display: table-row;
+border-bottom: solid 1px #d8d7d7;
+}
+
+.firmware-table-header {
+font-weight: bold;
+}
+
+.firmware-table-cell {
+text-align: left;
+padding: 10px;
+/* white-space: nowrap; */
+display: table-cell;
+overflow: hidden;
+vertical-align: middle;
+}

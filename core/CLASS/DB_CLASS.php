@@ -13,7 +13,7 @@ class DBClass{
 	private $MYSQLCONN;		// Connection ID
 	public $AR; 			// SYS
 	// Constructor
-	function DBClass($CONFn, $SYSn){
+	function DBClass($CONFn, $ARn){
 		$this->SERVER 	    = $CONFn['DB_SERVER']; 	      
 		$this->DBS 		    = $CONFn['DB_DBS']; 		  
 		$this->USER 	    = $CONFn['DB_USER']; 		  
@@ -62,6 +62,28 @@ class DBClass{
 				return mysqli_query($this->MYSQLCONN, $SQLQUER);
 			break;
 		}	
+	}
+	// NUMROW
+	function NUMROW($ROW){
+		switch($this->CONNECTTYPE){
+			case "mysql":
+				return mysql_num_rows($ROW);
+			break;
+			case "mysqli":
+				return mysqli_num_rows($ROW);
+			break;
+		}
+	}
+	// FETCHARRAY
+	function FETCHARRAY($ARR){
+		switch($this->CONNECTTYPE){
+			case "mysql":
+				return mysql_fetch_array($ARR);
+			break;
+			case "mysqli":
+				return mysqli_fetch_array($ARR);
+			break;
+		}
 	}
 	// Close connection
 	public function CLOSE(){

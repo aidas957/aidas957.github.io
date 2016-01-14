@@ -21,6 +21,22 @@ class PAGEClass{
 	public function SETMENU($MENUs){
 		$this->PMENU = $MENUs;
 	}
+	// Add сontent
+	// if we want other global template use parametr "OTHERTPL", if not use NULL
+	public function SETCONTENT($PCONTs, $OTHERTPL){
+		if($OTHERTPL){
+			$this->TPLw = $this->AR['TPL']->TLOAD($OTHERTPL); // If need other tpl
+		}
+		$this->PCONT = $PCONTs;
+	}
+	// Set all msg
+	public function SETMSG($PMSGs){
+		$this->PMSG = $PMSGs;
+	}
+	// Pagination
+	public function SETPAGINATION($PPAGs){
+		$this->PPAG = $PPAGs;
+	}
 	// Print page
 	public function Pr(){
 		$HTMLm = str_replace("[_tpl_path]", "/tpl/".$this->CONF['TPL_NAME']."/", $this->TPLw);
