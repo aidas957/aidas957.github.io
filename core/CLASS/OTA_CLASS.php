@@ -39,7 +39,7 @@ class OTAClass{
 				$RAWB = OTA_GET_API($HBUILD, 1, NULL, $this->AR); // Get one build
 				if($RAWB){ // if ok
 					$this->OTAREL .= $this->composerOTA($RAWB); // Create
-					$this->AR['LOG']->WR($this->OTAHTML);
+					$this->AR['LOG']->WR($this->OTAREL);
 				}else{
 					$this->AR['LOG']->WR("OTAClass: CREATE() NO BUILD ".$HBUILD."");
 					$this->OTAREL .= $this->TPLw['OTA_NULL'];
