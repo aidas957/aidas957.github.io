@@ -74,6 +74,17 @@ class DBClass{
 			break;
 		}
 	}
+	// AFFROW
+	function AFFROW(){
+		switch($this->CONNECTTYPE){
+			case "mysql":
+				return mysql_affected_rows($this->MYSQLCONN);
+			break;
+			case "mysqli":
+				return mysqli_affected_rows($this->MYSQLCONN);
+			break;
+		}
+	}
 	// FETCHARRAY
 	function FETCHARRAY($ARR){
 		switch($this->CONNECTTYPE){

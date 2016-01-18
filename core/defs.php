@@ -15,6 +15,9 @@ define ("FUNCTIONS_FOLDER", "".CORE_FOLDER."FUNCTIONS/"); // Functions folder
 define ("API_FOLDER", "".CORE_FOLDER."API/");             // API folder
 // Files
 define ("CONFIG_FILE", ROOT_FOLDER."/config.php"); // Configuration file
+define ("AUTH_FILE", "auth.php"); // Authorization
+define ("ADMIN_FILE", "admin.php"); // Administrator portal
+define ("INDEX_FILE", "index.php"); // Main page
 // Class
 define ("LOG_CLASS", "LOG_CLASS.php");    // Log algoritm class
 define ("DB_CLASS", "DB_CLASS.php");      // SQL db class
@@ -25,9 +28,11 @@ define ("PAGE_CLASS", "PAGE_CLASS.php");  // Main page class
 define ("OTA_CLASS", "OTA_CLASS.php");    // Ota class
 define ("MENU_CLASS", "MENU_CLASS.php");  // Menu class
 define ("NEWS_CLASS", "NEWS_CLASS.php");  // News class
+define ("USERS_CLASS", "USERS_CLASS.php"); // Users class
 // Function
 define ("MAIN_FUNCTION", "MAIN_FUNCTION.php"); // Main
 define ("TPL_FUNCTION", "TPL_FUNCTION.php");   // Function for tpl
 // API
 define ("OTA_API", "OTA_API.php"); // SQL for OTA
+define ("USERS_API", "USERS_API.php"); // Users for OTA
 ?>

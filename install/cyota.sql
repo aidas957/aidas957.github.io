@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: localhost
--- Время создания: Янв 14 2016 г., 11:25
+-- Время создания: Янв 18 2016 г., 15:47
 -- Версия сервера: 5.2.6
 -- Версия PHP: 5.3.6
 
@@ -91,6 +91,27 @@ CREATE TABLE IF NOT EXISTS `cy_devices` (
 
 INSERT INTO `cy_devices` (`cy_devices_id`, `cy_devices_code`, `cy_devices_name`, `cy_devices_desc`) VALUES
 (1, 'logan', 'GT-S7270', 'Samsung Galaxy Ace 3 (GT-S7270)');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `cy_users`
+--
+
+CREATE TABLE IF NOT EXISTS `cy_users` (
+  `cy_users_id` int(10) NOT NULL AUTO_INCREMENT,
+  `cy_users_login` varchar(255) NOT NULL,
+  `cy_users_password` varchar(255) NOT NULL,
+  `cy_users_sescode` varchar(255) NOT NULL,
+  PRIMARY KEY (`cy_users_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- Дамп данных таблицы `cy_users`
+--
+
+INSERT INTO `cy_users` (`cy_users_id`, `cy_users_login`, `cy_users_password`, `cy_users_sescode`) VALUES
+(1, 'admin', '', '');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

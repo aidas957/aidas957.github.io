@@ -1,2 +1,0 @@
-[14-Jan-2016 15:32:00] PHP Notice:  Undefined variable: PARSEARR8 in C:\EleanorServBeta\www\localhost\core\CLASS\OTA_CLASS.php on line 21
-[14-Jan-2016 15:32:20] PHP Notice:  Use of undefined constant PARSEARR - assumed 'PARSEARR' in C:\EleanorServBeta\www\localhost\core\CLASS\OTA_CLASS.php on line 21

@@ -38,6 +38,7 @@ table {border-collapse: collapse;border-spacing: 0;}
 .content{/*float:left*/;padding:0 12px;}
 
 .post{border-bottom:solid 1px #d5d5cd;margin-bottom:20px;padding-bottom:10px;}
+.post_ota{margin-bottom:20px;padding-bottom:10px;}
 .post .title{color:#acaa9e;font-size:14px;font-weight:bold;}
 .post .text{margin-top:10px;}
 .post .text a{text-decoration:underline;}
@@ -59,6 +60,7 @@ table {border-collapse: collapse;border-spacing: 0;}
 #footer{color:#acaa9e;padding:5px 10px 30px 10px;}
 #footer .copy{font-size:11px;line-height:14px;}
 #footer .copy span{color:#97b642;}
+
 div.notice {
 	margin: .5em 0 1.3em;
 	border: 1px solid;
@@ -74,6 +76,7 @@ div.notice {
 	border-color: #a2d246;
 	background-color: #ebf8a4;
 	}
+	
 div.error {
 	margin: .5em 0 1.3em;
 	border: 1px solid;
@@ -88,8 +91,9 @@ div.error {
 	box-shadow: 0 1px 1px #fff inset;
 	border-color: #a2d246;
 	background-color: #ebf8a4;
-	}	
+	}
 	
+/* Ota list in page */	
 .table-latest-firmware {
 border-collapse: collapse;
 width: 100%;
@@ -98,7 +102,7 @@ display: table;
 text-align: left;
 padding: 0;
 }
-.post_ota{margin-bottom:20px;padding-bottom:10px;}
+
 .firmware-table-row {
 color: #1e1e1e;
 text-decoration: none;
@@ -117,4 +121,53 @@ padding: 10px;
 display: table-cell;
 overflow: hidden;
 vertical-align: middle;
+}
+
+/* login */	
+.center-box {
+margin-left: 33%;
+width: 385px;
+height: 150px;
+margin-bottom: 50px;
+}
+
+.logo-container {
+height: 80px;
+text-align: center;
+width: 100%;
+}
+
+.center-box form {
+margin-top: 25px;
+text-align: center;
+}
+
+.center-box form div {
+text-align: center;
+width: 100%;
+margin-top: 10px;
+}
+
+.center-box form button {
+font-size: 16px;
+padding: 3px 15px;
+}
+
+button{
+border: 1px solid #7ab3cf;
+border-radius: 5px;
+margin-bottom: 4px;
+padding: 3px 10px;
+color: #333;
+font-size: 104%;
+background: #f4fefe;
+background: -moz-linear-gradient(top, #f4fefe 0%, #ffffff 13%, #f7fcfd 30%, #ecf8fc 54%, #e8f4fa 75%, #e3eff9 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f4fefe), color-stop(13%, #ffffff), color-stop(30%, #f7fcfd), color-stop(54%, #ecf8fc), color-stop(75%, #e8f4fa), color-stop(100%, #e3eff9));
+background: -webkit-linear-gradient(top, #f4fefe 0%, #ffffff 13%, #f7fcfd 30%, #ecf8fc 54%, #e8f4fa 75%, #e3eff9 100%);
+background: -o-linear-gradient(top, #f4fefe 0%, #ffffff 13%, #f7fcfd 30%, #ecf8fc 54%, #e8f4fa 75%, #e3eff9 100%);
+background: -ms-linear-gradient(top, #f4fefe 0%, #ffffff 13%, #f7fcfd 30%, #ecf8fc 54%, #e8f4fa 75%, #e3eff9 100%);
+background: linear-gradient(to bottom, #f4fefe 0%, #ffffff 13%, #f7fcfd 30%, #ecf8fc 54%, #e8f4fa 75%, #e3eff9 100%);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#f4fefe', endColorstr = '#e3eff9', GradientType = 0);
+cursor: pointer;
+/* box-shadow: 1px 1px 2px #dedede; */
 }
