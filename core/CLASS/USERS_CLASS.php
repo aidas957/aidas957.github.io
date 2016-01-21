@@ -17,17 +17,45 @@ class USERSClass{
 			case "N": // By name
 				$INFO = USER_GET_API($DATA, "N", $this->AR); //
 			break;
+			case "S": // By session
+				$INFO = USER_GET_API($DATA, "S", $this->AR); //
+			break;
 		}
 		if($INFO){ // Parse info from db
 			$RMEN = $this->AR['DB']->FETCHARRAY($INFO); //
 			$USRINFO['NAME'] = $RMEN['cy_users_login'];     // Login
 			$USRINFO['PASS'] = $RMEN['cy_users_password'];  // Password
+			$USRINFO['RANG'] = $RMEN['cy_users_rang'];      // Rang
 			return $USRINFO;
 			
 		}else{ // No user
+			$this->AR['LOG']->WR("USERSClass: USERINFO no user");
 			return NULL;
 		}		
 	}
+	// ISADMIN
+	public function ISADMIN($DATA, $BY){
+		$USERINF = NULL;
+		switch($BY){
+			case "S": // By sesion
+				$this->AR['LOG']->WR("USERSClass: ISADMIN SES IS ".$DATA."");
+				$USERINF = $this->USERINFO($DATA, "S"); // Get user info
+			break;
+		}
+		if($USERINF){
+			$this->AR['LOG']->WR("USERSClass: ISADMIN RANG IS ".$USERINF['RANG']."");
+			if($USERINF['RANG'] == ADMINISTRATOR){
+				return true;
+			}else{
+				$this->AR['LOG']->WR("USERSClass: ISADMIN Not admin");
+				return FALSE;
+			}
+		}else{
+			$this->AR['LOG']->WR("USERSClass: ISADMIN No user by session, error chek isadmin");
+			return FALSE;
+		}		
+	}
+// Forms	
 	// Show login form
 	public function SHOWLOGINFORM(){
 		$TPLw = $this->AR['TPL']->TLOAD('LOGIN');
@@ -36,6 +64,11 @@ class USERSClass{
 		$TPLw = str_replace("[_l_password]", $this->AR['LNG']->STR['d_pass'], $TPLw);
 		$this->OUT = str_replace("[_l_enter]", $this->AR['LNG']->STR['d_enter'], $TPLw);
 	}
+	// Show admin form
+	public function SHOWADMINFORM(){
+		$this->OUT = $this->AR['TPL']->TLOAD('ADMIN');
+	}
+// Functions	
 	// Login function
 	public function AUTH(){
 		if(isset($_POST['login']) AND isset($_POST['password'])){
@@ -44,7 +77,8 @@ class USERSClass{
 				$USERINF = $this::USERINFO($LOGIN, "N"); // Get user info
 				if($USERINF){ // If have user
 					$this->AR['LOG']->WR("USERSClass: User ".$LOGIN." found");
-					if(strcmp($USERINF['PASS'], $PASS) == 0){
+					//$this->AR['LOG']->WR("USERSClass: GenPass test is ".GenPass($PASS, $PASS."ota")." <-");
+					if(strcmp($USERINF['PASS'], GenPass($PASS, $PASS."ota")) == 0){
 						session_start();
 						$_SESSION['USERSES_CODE'] = GenHashe($LOGIN, "ota");
 						$this->AR['LOG']->WR("USERSClass: SESION is ".$_SESSION['USERSES_CODE']." for ".$LOGIN."");

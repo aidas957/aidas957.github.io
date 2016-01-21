@@ -24,4 +24,8 @@ function GenHashe($DATA, $Key){
 	$code = md5(md5($DATA).md5($randcode).md5($Key));
 	return $code;
 }
+// Gen Pass
+function GenPass($DATA, $Key){
+	return crypt($DATA, $Key);
+}
 ?>

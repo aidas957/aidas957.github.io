@@ -35,4 +35,6 @@ define ("TPL_FUNCTION", "TPL_FUNCTION.php");   // Function for tpl
 // API
 define ("OTA_API", "OTA_API.php"); // SQL for OTA
 define ("USERS_API", "USERS_API.php"); // Users for OTA
+// Rang
+define ("ADMINISTRATOR", 9); // Admin rang
 ?>

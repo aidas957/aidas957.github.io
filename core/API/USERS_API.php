@@ -9,6 +9,10 @@ function USER_GET_API($DATAS, $PR, $AR){
 		case "N": // By name
 			$usr= $AR['DB']->QUERY("SELECT * FROM cy_users WHERE cy_users_login = '$DATAS' LIMIT 1");
 		break;
+		case "S": // By sesion
+			$usr= $AR['DB']->QUERY("SELECT * FROM cy_users WHERE cy_users_sescode = '$DATAS' LIMIT 1");
+			$AR['LOG']->WR("USER_GET_API: S: SELECT * FROM cy_users WHERE cy_users_sescode = '$DATAS' LIMIT 1");
+		break;
 	}	
 	if($AR['DB']->NUMROW($usr) == 0){
 		return NULL;

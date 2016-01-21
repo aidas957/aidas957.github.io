@@ -102,6 +102,7 @@ CREATE TABLE IF NOT EXISTS `cy_users` (
   `cy_users_id` int(10) NOT NULL AUTO_INCREMENT,
   `cy_users_login` varchar(255) NOT NULL,
   `cy_users_password` varchar(255) NOT NULL,
+  `cy_users_rang` int(11) NOT NULL,
   `cy_users_sescode` varchar(255) NOT NULL,
   PRIMARY KEY (`cy_users_id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
@@ -110,8 +111,8 @@ CREATE TABLE IF NOT EXISTS `cy_users` (
 -- Дамп данных таблицы `cy_users`
 --
 
-INSERT INTO `cy_users` (`cy_users_id`, `cy_users_login`, `cy_users_password`, `cy_users_sescode`) VALUES
-(1, 'admin', '', '');
+INSERT INTO `cy_users` (`cy_users_id`, `cy_users_login`, `cy_users_password`, `cy_users_rang`, `cy_users_sescode`) VALUES
+(1, 'admin', 'adpexzg3FUZAk', 9, '');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
