@@ -4,7 +4,7 @@
 */
 define('_CYOTA', 1); // Protect key
 /* Input parameter */
-if(isset($_GET['com'])){$PARAM['COM'] = $_GET['com'];}else{$PARAM['COM'] = NULL;} // Сщььфтв зфкфь
+if(isset($_GET['com'])){$PARAM['COM'] = $_GET['com'];}else{$PARAM['COM'] = NULL;} // Param
 /* Include */
 include("core/init.php"); // Init core
 /* Portal */

@@ -66,7 +66,9 @@ class USERSClass{
 	}
 	// Show admin form
 	public function SHOWADMINFORM(){
-		$this->OUT = $this->AR['TPL']->TLOAD('ADMIN');
+		$TPLw = $this->AR['TPL']->TLOAD('ADMIN');
+		$TPLw = str_replace("[_tpl_path]", "/tpl/".$this->CONF['TPL_NAME']."/", $TPLw);
+		$this->OUT = str_replace("[_l_builds]", $this->AR['LNG']->STR['d_builds'], $TPLw);	
 	}
 // Functions	
 	// Login function

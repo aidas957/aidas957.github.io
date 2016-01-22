@@ -9,6 +9,9 @@
 	<div class="firmware-table-cell">[d_cmcode]</div>
 	<div class="firmware-table-cell">[d_changelog]</div>
 	<div class="firmware-table-cell">[d_download]</div>
+	[_ifnews_admin]
+	<div class="firmware-table-cell">[d_del]</div>
+	[_ifnews_admin]
     </div>
 	
 [_ifnews_data]
@@ -21,6 +24,9 @@
 	<div class="firmware-table-cell">[_b_cmcode]</div>
 	<div class="firmware-table-cell"><a href="[_b_wievlink]">[_b_changelog]</a></div>
 	<div class="firmware-table-cell"><a href="[_b_downlink]">[_b_download]</a></div>
+	[_ifnews_admin]
+	<div class="firmware-table-cell"><a href="[_b_del]">[d_del]</a></div>
+	[_ifnews_admin]
 	</div>
 	<!-- </a> -->
 [_ifnews_data]

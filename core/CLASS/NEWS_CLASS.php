@@ -23,7 +23,22 @@ class NEWSClass{
 		$NWSRAW = OTA_GET_API("NULL", 2, $EXT, $this->AR); // Get all build(limited)
 		
 		if($NWSRAW){ // If we have builds
-			$this->NEWSLIST = $this->composenws($NWSRAW);
+			$this->NEWSLIST = $this->composenws($NWSRAW, false);
+		}else{
+			$this->AR['MSG']->SHOW($this->AR['LNG']->STR['msg_no_builds'], "I");
+			$this->AR['LOG']->WR("NEWSClass: GET ALL NEWS - NO NEWS");
+		}
+	}
+	// Greate admin list news
+	public function GETFULL(){
+		$CUR_PAGE = 1;      // Current page
+		$EXT['STNEWS'] = $this->paginationcomposer($CUR_PAGE);  // Start news
+		$EXT['PPAGENEWS'] = $this->CONF['NEWS_OTA_PERPAGE'];    // Perpage news
+		
+		$NWSRAW = OTA_GET_API("NULL", 2, $EXT, $this->AR); // Get all build(limited)
+		
+		if($NWSRAW){ // If we have builds
+			$this->NEWSLIST = $this->composenws($NWSRAW, true);
 		}else{
 			$this->AR['MSG']->SHOW($this->AR['LNG']->STR['msg_no_builds'], "I");
 			$this->AR['LOG']->WR("NEWSClass: GET ALL NEWS - NO NEWS");
@@ -101,21 +116,35 @@ class NEWSClass{
 	}
 	
 	// Build list
-	private function composenws($NWSRAW){
+	private function composenws($NWSRAW, $ADM){
 		$RTNEWS = "";
 		preg_match("/\[_ifnews\](.*?)\[_ifnews\]/s", $this->TPLw['NEWS'], $CUTEDNEWS_ALL); // Get template (All template) from TPLw from [_ifnews]*[_ifnews]
+		if($ADM){ // if admin in panel
+			$RE = str_replace("[_ifnews_admin]", "", $CUTEDNEWS_ALL[1]);
+		}else{ // if admin in panel
+			$RE = preg_replace("/\[_ifnews_admin\].*?\[_ifnews_admin\]/s", "", $CUTEDNEWS_ALL[1]);
+		}
 		
-		$WS = str_replace("[d_device]", $this->AR['LNG']->STR['d_device'], $CUTEDNEWS_ALL[1]);
+		$WS = str_replace("[d_device]", $this->AR['LNG']->STR['d_device'], $RE);
 		$WS = str_replace("[d_date]", $this->AR['LNG']->STR['d_date'], $WS);
 		$WS = str_replace("[d_codename]", $this->AR['LNG']->STR['d_codename'], $WS);
 		$WS = str_replace("[d_cmversion]", $this->AR['LNG']->STR['d_cmversion'], $WS);
 		$WS = str_replace("[d_cmcode]", $this->AR['LNG']->STR['d_cmcode'], $WS);
 		$WS = str_replace("[d_changelog]", $this->AR['LNG']->STR['d_changelog'], $WS);
 		$WS = str_replace("[d_download]", $this->AR['LNG']->STR['d_download'], $WS);
+		$WS = str_replace("[d_del]", $this->AR['LNG']->STR['d_del'], $WS);
 		
 		preg_match("/\[_ifnews_data\](.*?)\[_ifnews_data\]/s", $this->TPLw['NEWS'], $CUTEDNEWS); // Get template from from [_ifnews_data]*[_ifnews_data]
+		
+		if($ADM){ // if admin in panel
+			$RECUTE =  str_replace("[_ifnews_admin]", "", $CUTEDNEWS[1]);
+		}else{ // if admin in panel
+			$RECUTE = preg_replace("/\[_ifnews_admin\].*?\[_ifnews_admin\]/s", "", $CUTEDNEWS[1]);
+		}
+		
 		// Replace data in [_ifnews_data]*[_ifnews_data]
 		while($R_NEWS = $this->AR['DB']->FETCHARRAY($NWSRAW)){
+			$N_ID = $R_NEWS['cy_builds_id'];
 			$N_DATA = $R_NEWS['cy_builds_addtime'];
 			$N_INC 	= $R_NEWS['cy_builds_incremental'];
 			$N_DEV 	= $R_NEWS['cy_builds_device'];
@@ -146,13 +175,15 @@ class NEWSClass{
 				$R_DROIDNAMECM = "-";
 			}
 			
-			$RT = str_replace("[_b_codename]", $N_DEV, $CUTEDNEWS[1]);
+			$RT = str_replace("[_b_codename]", $N_DEV, $RECUTE);
 			$RT = str_replace("[_b_date]", $N_DATA, $RT);
 			$RT = str_replace("[_b_changelog]", $this->AR['LNG']->STR['d_wiev'], $RT);
 			$RT = str_replace("[_b_download]", $this->AR['LNG']->STR['d_download'], $RT);
 			$RT = str_replace("[_b_downlink]", $N_DWNLINK, $RT);
 			$RT = str_replace("[_b_wievlink]", $N_WIEVLINK, $RT);
 			$RT = str_replace("[_b_cmversion]", $R_DROIDNAME."(".$R_DROIDNAMECM.")", $RT);
+			$RT = str_replace("[d_del]", $this->AR['LNG']->STR['d_del'], $RT);
+			$RT = str_replace("[_b_del]", ADMIN_FILE."?com=builds&do=del&id=".$N_ID, $RT);
 			$RT = str_replace("[_b_device]", $N_DEVNAME, $RT);
 			
 			$RTNEWS .= str_replace("[_b_cmcode]", $N_INC, $RT);
