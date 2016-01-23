@@ -17,7 +17,7 @@ $CONF['DB_CONNTYPE'] = "mysqli"; 	    // Connection type (mysql, mysqli)
 // Template
 $CONF['TPL_NAME']   = "standart";       // Template name
 // Language
-$CONF['LNG_NAME']   = "RU";             // Language
+$CONF['LNG_NAME']   = "en";             // Language
 // news
 $CONF['NEWS_OTA_PERPAGE'] = 30;         // Ota news per page
 ?>
